@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>index1</title>
+  <!-- 开发环境版本，包含了用帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 生产环境版本，优化了尺寸和速度 -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+</head>
+<body>
+  <div class="body">
+    <div class="header">
+      <div class="title">{{title}}</div>
+    </div>
+
+    <div class="aside">
+      <ul>
+        <li>1{{list[0]}}</li>
+        <li>2{{list[2]}}</li>
+        <li>3{{list[3]}}</li>
+        <li>4{{list[4]}}</li>
+        <li>{{title}}</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="header">article title</div>
+      <div class="article">article article article article article article article article article article article article article article article article article article article article article article article article article article article article article article article article 
+        <p>ppppppp</p>
+        <p>ppppparticle article article article pp</p>
+        <p>ppppppp</p>
+        <p>ppppparticle article article article pp</p>
+        <p>ppppppparticle article article article article article article article </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="aside">
+    {{list}}
+  </div>
+
+  <div class="other">
+    {{list}}
+  </div>
+
+  <script>
+    var body = new Vue({
+      el: '.body',
+      data: {
+        title: 'haha title',
+        list: [0, 1, 2, 3, 4]
+      }
+    })
+
+    var header = new Vue({
+      el: '.aside',
+      data: {
+        list: [0, 1, 2, 3, 4]
+      }
+    })
+
+    var other = new Vue({
+      el: '.other',
+      data: {
+        list: [0, 0, 2, 3]
+      }
+    })
+  </script>
+</body>
+</html>
