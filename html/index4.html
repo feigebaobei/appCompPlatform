@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>index4</title>
+  <!-- 引入样式 -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+  <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+  <style>
+.layout{
+    border: 1px solid #d7dde4;
+    background: #f5f7f9;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.layout-logo{
+    width: 100px;
+    height: 30px;
+    background: #5b6270;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+    top: 15px;
+    left: 20px;
+}
+.layout-nav{
+    width: 420px;
+    margin: 0 auto;
+    margin-right: 20px;
+}
+  </style>
+  <!-- 开发环境版本，包含了用帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+  <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+  <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+</head>
+<body>
+  <div id="layout">
+    <layout-vue></layout-vue>
+  </div>
+  <script>
+    Vue.component('layout-vue', {
+      template: ''
+    })
+    var layout = new Vue({
+      el: '#layout',
+      data: {},
+
+    })
+  </script>
+</body>
+</html>

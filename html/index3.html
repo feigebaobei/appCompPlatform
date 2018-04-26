@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>index</title>
+  <!-- 引入样式 -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+  <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+  <style>
+
+    html, body, #main {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+    .header {
+      height: 60px;
+      width: 100%;
+      background: #334752;
+      color: #eee;
+    }
+    .header .title{
+      margin: 0px;
+      line-height: 60px;
+      float: left;
+    }
+    .header .userBox {
+      float: right;
+    }
+    .header .userBox .headerPhoto {
+      width: 50px;
+      height: 50px;
+      border-radius: 26px;
+      margin: 5px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .header .userBox span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .header .userBox .el-dropdown {
+      margin: -20px 15px 0 15px;
+    }
+
+  </style>
+  <!-- 开发环境版本，包含了用帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+  <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+  <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <!-- <header-vue></header-vue>
+    <aside-vue></aside-vue>
+    <main-vue></main-vue> -->
+    <div id="header">
+      <headervue></headervue>
+    </div>
+    <div id="asidevue">
+      
+    </div>
+    <div id="main">
+      <i-button @click="show">Click me!</i-button>
+      <Modal v-model="visible" title="Welcome">Welcome to iView</Modal>
+    </div>
+  </div>
+
+
+  <script>
+    /*路由 start*/
+    const Foo = {template: "<div>foo</div>"}
+    const Bar = {template: "<div>bar</div>"}
+    const Index = {template: "<div>index</div>"}
+    const User = {template: "<div>\
+                              <h6>user {{$route.params.id}}</h6>\
+                              <ul>\
+                                <li>1<router-link to='/name'>name</router-link></li>\
+                                <li>2<router-link to='/age'>age</router-link></li>\
+                              </ul>\
+                              <router-view></router-view>\
+                            </div>"}
+    const NameUser = {template: "<div>name</div>"}
+    const AgeUser = {template: "<div>\
+                                  <router-link to='ming'>ming</router-link>\
+                                  <router-link to='uzi'>uzi</router-link>\
+                                  <a href='./index.html'>index by a tag</a>\
+                                  <router-view></router-view>\
+                                </div>"}
+    const Ageming = {template: "<div>ming 19</div>"}
+    const Ageuzi = {template: "<div>uzi 20</div>"}
+    const routes = [
+      { path: '/foo', component: Foo },
+      { path: '/bar', component: Bar },
+      { path: '/index', component: Index },
+      {
+        path: '/user', 
+        component: User,
+        children: [
+          {
+            path: '/name',
+            name: 'name',
+            component: NameUser
+          },
+          {
+            path: '/age',
+            component: AgeUser,
+            children: [
+              {
+                path: 'ming',
+                component: Ageming
+              },
+              {
+                path: 'uzi',
+                component: Ageuzi
+              }
+            ]
+          }
+        ]
+      },
+    ]
+    const router = new VueRouter({
+      routes
+    })
+    /*路由 end*/
+
+
+    /* header vue start */
+    // 全局注册
+    Vue.component('headervue', {
+      template: '<div class="header">\
+                  <h2 class="title">应用管理后台</h2>\
+                  <div class="userBox">\
+                    <img src="../images/food.jpg" alt="头像" class="headerPhoto" />\
+                    <span>ssss</span>\
+                  </div>\
+                </div>'
+      // template: '<div>A custom component!</div>'
+    })
+    var headerVue = new Vue({
+      el: '#header',
+      data: {},
+      methods: {
+        
+      }
+    })
+    /* header vue end */
+    /* aside vue start */
+    /* aside vue end */
+    /* main vue start */
+    var mainVue = new Vue({
+      el: '#main',
+      data: {
+        visible: false
+      },
+      methods: {
+        show: function () {
+          this.visible = true
+        }
+      }
+    })
+    /* main vue end */
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
